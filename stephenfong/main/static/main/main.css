@@ -1,0 +1,310 @@
+
+body {
+  margin-top: 5rem;
+}
+
+/* ========== top navbar ========== */
+
+.navbar {
+  background-color: #0E0E0E;
+  height: 80px;
+  transition: height 1s ease-in-out;
+}
+
+.navbar.resized {
+  height: 60px;
+}
+
+.navbar-brand {
+  font-size: 1.3rem!important;
+  transition: font-size 1s ease-in-out;
+}
+
+.navbar.resized .navbar-brand {
+  font-size: 1.2rem!important;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #ffffff;
+  font-size: 1.1rem;
+  transition: font-size 1s ease-in-out;
+  font-family: gilroy;
+  font-weight: normal;
+  text-transform: lowercase;
+  display: block;
+}
+
+.site-header .navbar.resized .nav-link {
+  font-size: 1rem!important;
+}
+
+.site-header .navbar-nav .nav-link:after {
+  content: '';
+  /* block-level element always starts on a new line and takes up the full width available (stretches out to the left and right as far as it can). */
+  /* inline-block only takes space if necessary, but height and width attributes still work */
+  display: block;
+  /* this 3px will always remain here, not matter the border is displayed or not */
+  border-bottom: 2px solid #FFFFFF;
+  /* starting width of the border */
+  width: 0;
+  /* ease-in specifies a transition effect with a slow start */
+  transition: .5s ease-in;
+  /* webkit is Safari and Chrome's rendering engine, adding this to support compatibility */
+  -webkit-transition: .5s ease-in;
+}
+
+/* this style is applied to the newly added content */
+.site-header .navbar-nav .nav-link:hover:after {
+  width: 100%;
+  border-bottom: 2px solid #009877;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+/* ================================ */
+
+.title {
+  color: #ffffff;
+}
+
+.subtitle {
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 1280px) {
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .txtType {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .title {
+    width: 16rem;
+    margin-top: 0.7rem;
+    margin-left: -4rem;
+    font-size: 1.5rem;
+  }
+  .subtitle {
+    margin-left: -4rem;
+    font-size: 0.75rem;
+  }
+  .txtType {
+    font-size: 0.75rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    width: 14rem;
+    margin-top: 0.5rem;
+    margin-left: -2rem;
+    font-size: 1rem;
+  }
+  .subtitle {
+    font-size: 0.5rem;
+    margin-left: -2rem;
+  }
+  .txtType {
+    font-size: 0.5rem;
+  }
+}
+
+video {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* specify how an <img> or <video> should be resized to fit its container. */
+  object-fit: fill;
+  z-index: 0;
+}
+
+.trans-section-major {
+  background: none;
+  margin: 10rem 10rem;
+  position: relative;
+  z-index: 1;
+}
+
+.trans-section-secondary {
+  background: none;
+  margin: 5rem 5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.my-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 5rem;
+}
+
+.txt-type {
+  color: #FACF5A;
+  font-weight: bolder;
+}
+
+/* Cursor */
+.txt-type > .txt {
+  border-right: 0.2rem solid #777;
+}
+
+.neon-link {
+  color: #fff;
+  margin: 1rem auto;
+  padding: 5px;
+  width: 20rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-family: poppins;
+  font-weight: 700;
+  border-radius: 100px;
+  letter-spacing: 5px;
+  cursor: pointer;
+  transition: 1.5s;
+}
+
+.neon-link:hover {
+  box-shadow: 0 5px 50px 0px #CDDC39 inset, 0 5px 50px 0px #CDDC39;
+  text-shadow: 0 0 5px #fff, 0 0 5px #fff;
+  text-decoration: none;
+  color: white;
+}
+
+.slide-up-first-delay {
+  animation: Slide_Up 1s ease;
+}
+
+.slide-up-second-delay {
+  animation: Slide_Up 1.4s ease;
+}
+
+@keyframes Slide_Up {
+  0% {
+    transform: translateY(250px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ========== about page ========== */
+.about-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+.transparent-about-section {
+  background: none;
+}
+
+.dark-about-section {
+  background: #000;
+}
+
+.about-text {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+@import url('http://fonts.cdnfonts.com/css/brandon-grotesque-regular');
+
+.about-title {
+  margin-top: 4em;
+  font-size: 40px;
+  font-family: 'Brandon Grotesque Bold';
+}
+
+@import url('http://fonts.cdnfonts.com/css/gilroy-bold');
+
+.about-content {
+  margin-top: 5em;
+  margin-bottom: 5em;
+  font-family: 'Gilroy-Light';
+}
+
+/* ========== contact form page ========== */
+.contact-form {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin: 20px auto;
+  position: relative;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+#contact-form-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* specify how an <img> or <video> should be resized to fit its container. */
+  object-fit: fill;
+  z-index: 0;
+}
+
+.contact-submit-btn {
+  width: 200px;
+  height: 60px;
+  background: none;
+  border: 4px solid;
+  color: #3498db;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size 16px;
+  position: relative;
+  left: 6.5rem;
+  
+  margin: 0 auto;
+}
+
+.contact-submit-btn::before, .contact-submit-btn::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 4px;
+  background: #8BC34A;
+  transform: skewX(50deg);
+  transition: .4s linear;
+}
+
+.contact-submit-btn::before {
+  top: -4px;
+  left: 10%;
+}
+
+.contact-submit-btn::after {
+  bottom: -4px;
+  right: 10%;
+}
+
+.contact-submit-btn:hover::before {
+  left: 80%;
+}
+
+.contact-submit-btn:hover::after {
+  right: 80%;
+}
+
+.contact-textbox {
+  resize: none;
+}

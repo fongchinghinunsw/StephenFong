@@ -1,0 +1,39 @@
+<header class="site-header">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand mr-4 mb-1" href="{% url 'home' %}">Stephen Fong</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+	<div class="navbar-nav mr-auto">
+	  <a class="nav-item nav-link ml-3 mr-3" href="{% url 'about' %}">About</a>
+	  <a class="nav-item nav-link ml-3 mr-3" href="{% url 'project' %}">Project</a>
+	  <a class="nav-item nav-link ml-3 mr-3" href="{% url 'article' %}">Article</a>
+	</div>
+	<!-- Navbar Right Side -->
+	<div class="navbar-nav">
+	  <a class="nav-item nav-link ml-3 mr-3" href="{% url 'contact' %}">Contact</a>
+	</div>
+      </div>
+    </div>
+  </nav>
+</header>
+<script>
+  // resizing of the top bar
+  /* The window object represents an open window in a browser. */
+  window.onscroll = function () {
+    resizeHeader()
+  }
+
+  function resizeHeader() {
+    /* document is the HTML DOM Document Object, represents the web page
+       If you want to access any element in an HTML page, you always start with accessing the document object. */
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    // querySelector returns the first element that matches a specified CSS selector(s) in the document
+      document.querySelector(".navbar").classList.add("resized")
+    } else {
+      document.querySelector(".navbar").classList.remove("resized")
+    }
+  }
+</script>

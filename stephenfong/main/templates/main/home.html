@@ -1,0 +1,108 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div>
+    <div class="media trans-section-major row slide-up-first-delay">
+      <img class="rounded-circle my-img" src="{% static 'main/stephen.png' %}">
+      <div class="media-body">
+	<h1 class="title">Build a better world with</h1>
+	<h1 class="title">Stephen Fong</h1>
+        <!-- HTML5 alows us to define custom attributes as along as we put `data-` before them, and then we can access them in JS -->
+        <!-- 3000 is the wait time after the whole word is typed -->
+        <!-- data-words is just a string but we can parse it to JS array using JS -->
+	<p class="subtitle">I'm a&nbsp;
+          <span class="txt-type" data-wait="1000" data-words='["Developer", "Designer", "Creator"]'></span>
+        </p>
+      </div>
+    </div>
+
+    <div class="trans-section-secondary row slide-up-second-delay">
+      <div class="col">
+	<div class="row">
+	  <a class="neon-link" href="{% url 'about' %}">Know About Me</a>
+	</div>
+	<div class="row">
+	  <a class="neon-link" href="{% url 'project' %}">See My Projects</a>
+	</div>
+	<div class="row">
+	  <a class="neon-link" href="{% url 'article' %}">Read My Articles</a>
+	</div>
+	<div class="row">
+	  <a class="neon-link" href="{% url 'contact' %}">Contact Me</a>
+	</div>
+      </div>
+    </div>
+    <video class="video-bg" src="{% static 'main/green_bg.mp4' %}" autoplay muted loop></video>
+  </div>
+
+  <script>
+    const TypeWriter = function(txtElement, words, wait = 3000) {
+      this.txtElement = txtElement;
+      this.words = words;
+      this.txt = '';
+      this.wordIndex = 0;
+      // in base 10
+      this.wait = parseInt(wait, 10);
+      // method associated with the typewriter's functionality
+      this.type();
+      // deleting is when the typewriter goes backward.
+      this.isDeleting = false;
+    }
+    // Type Method
+    TypeWriter.prototype.type = function() {
+      // Current index of word
+      const current = this.wordIndex % this.words.length;
+      // Get full text of current word
+      const fullTxt = this.words[current];
+
+      // Check if deleting
+      if (this.isDeleting) {
+        // Remove char
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      } else {
+        // Add char
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
+
+      // Insert txt into element
+      // `` is ES6 (second major revision to JavaScript) syntax
+      this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+      // Initial Type Speed
+      let typeSpeed = 300;
+
+      if (this.isDeleting) {
+        typeSpeed /= 2;
+      }
+
+      // If word is complete
+      if (!this.isDeleting && this.txt == fullTxt) {
+        // Make pause at end
+        typeSpeed = this.wait;
+        // Set delete to true
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        // Move to next word
+        this.wordIndex++;
+        // Pause before start typing
+        typeSpeed = 500;
+      }
+
+      setTimeout(() => this.type(), typeSpeed)
+    }
+
+    // Init on DOM Load
+    document.addEventListener('DOMContentLoaded', init);
+
+    // Init App
+    function init() {
+      const txtElement = document.querySelector('.txt-type');
+      const words = JSON.parse(txtElement.getAttribute('data-words'));
+      const wait = txtElement.getAttribute('data-wait');
+      new TypeWriter(txtElement, words, wait);
+    }
+  </script>
+</a>
+{% endblock content %}

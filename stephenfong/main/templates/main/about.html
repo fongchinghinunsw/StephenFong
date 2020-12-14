@@ -1,0 +1,58 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<!-- container-fluid causes the container to stretch the entire screen. This will allow any div's inside of it to naturally stretch as wide as they need. -->
+<div class="container-fiuld">
+  <div>
+    <!-- container-fluid will leaves 15px left and right margin, while row will remove them -->
+    <div class="row">
+      <div class="about-section transparent-about-section">
+        <div class="about-text about-title">
+          About Me
+        </div>
+        <div class="about-text about-content">
+          Hi, I'm Stephen Fong and I am developer who dream making the world
+          better place by creating software products.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="about-section dark-about-section">
+        <div class="about-text about-title">
+          Education
+        </div>
+        <div class="about-text about-content">
+          University of New South Wales -<br/>
+          Bachelor of Science in Computer Science (2018-2021)<br/>
+          2020 Dean List
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="about-section transparent-about-section">
+        <div class="about-text about-title">
+          Technical Skills
+        </div>
+        <div class="about-text about-content">
+          Languages: Python, Java, Kotlin, C, HTML, CSS, JavaScript<br/>
+          Tools, Frameworks and Libraries: Flask, Django, Git, Github, Bootstrap, jQuery, vim
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="about-section dark-about-section">
+        <div class="about-text about-title">
+          General Skills
+        </div>
+        <div class="about-text about-content">
+          Languages: Traditional Chinese (Native), Traditional Chinese (Native), English (Fluent), Japanese (N3) <br/>
+          Others: Cooking, Sleeping, Gaming
+        </div>
+      </div>
+    </div>
+    <video class="video-bg" src="{% static 'main/blue_graph.mp4' %}" autoplay muted loop></video>
+  </div>
+</div>
+{% endblock content %}

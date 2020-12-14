@@ -1,0 +1,33 @@
+{% load static %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'main/chatbot.css' %}">
+<button class="chat-btn">
+    <i class="material-icons">comment</i>
+</button>
+<div class="chat-popup">
+  <div class="chat-area">
+    <div class="income-msg">
+      <img src="http://localhost:6969/static/assistant.png" class="avatar" alt="">
+      <span class="msg"> Hi, How can I help you?</span>
+    </div>
+  </div>
+  <div class="input-area">
+    <input id="chat-input" type="text">
+    <button class="submit"><i class="material-icons">send</i></button>
+  </div>
+</div>
+
+<script>
+const popup = document.querySelector('.chat-popup');
+const chatBtn = document.querySelector('.chat-btn');
+const submitBtn = document.querySelector('.submit');
+const chatArea = document.querySelector('.chat-area');
+const inputElm = document.querySelector('#chat-input');
+const current_user_icon = "{{ current_user.icon }}";
+
+// chat button toggler
+chatBtn.addEventListener('click', () => {
+  popup.classList.toggle('show');
+})
+
+</script>
